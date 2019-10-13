@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,10 +16,10 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
-        //TODO new window popup with template
         JButton addButton = new JButton("Add");
         toolBar.add(addButton);
 
+        //Simplistic dialog for creating new elements
         JTextField nameField = new JTextField(5);
         JTextField dateField = new JTextField(5);
         JTextField typeField = new JTextField(5);
@@ -38,7 +39,7 @@ public class MainWindow extends JFrame {
         myPanel.add(weightField);
         myPanel.add(new JLabel("Origin:"));
         myPanel.add(originField);
-        myPanel.add(new JLabel("Type of Baking:"));
+        myPanel.add(new JLabel("Roasting:"));
         myPanel.add(bakingField);
 
 
@@ -53,10 +54,16 @@ public class MainWindow extends JFrame {
             }
         });
 
+        //added empty table
+        TableModel tableModel = new CoffeeTableModel(null);
+
+        JTable table = new JTable(tableModel);
+        table.setRowHeight(20);
+        add(new JScrollPane(table));
+
         JButton filterButton = new JButton("Filter");
         toolBar.add(filterButton);
 
-        
         JButton removeButton = new JButton("Remove");
         toolBar.add(removeButton);
 
