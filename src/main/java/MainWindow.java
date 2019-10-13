@@ -13,19 +13,30 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
-        /**
-        JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(actionEvent -> System.exit(0));
-         */
-
         JButton addButton = new JButton("Add");
         JButton filterButton = new JButton("Filter");
         JButton removeButton = new JButton("Remove");
-
-        //toolBar.add(exitButton);
         toolBar.add(addButton);
         toolBar.add(filterButton);
         toolBar.add(removeButton);
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        menuBar.add(fileMenu);
+
+        //TODO add icons
+        JMenuItem loadMenuItem = new JMenuItem("Load");
+        fileMenu.add(loadMenuItem);
+        JMenuItem saveMenuItem = new JMenuItem("Save");
+        fileMenu.add(saveMenuItem);
+
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        exitMenuItem.addActionListener(actionEvent -> System.exit(0));
+        fileMenu.add(exitMenuItem);
+
+        setJMenuBar(menuBar);
+        pack();
+
 
     }
 
