@@ -16,7 +16,6 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
-        //TODO new window popup with template
         JButton addButton = new JButton("Add");
         toolBar.add(addButton);
 
@@ -40,7 +39,7 @@ public class MainWindow extends JFrame {
         myPanel.add(weightField);
         myPanel.add(new JLabel("Origin:"));
         myPanel.add(originField);
-        myPanel.add(new JLabel("Type of Baking:"));
+        myPanel.add(new JLabel("Roasting:"));
         myPanel.add(bakingField);
 
 
