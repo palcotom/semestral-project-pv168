@@ -13,11 +13,15 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
+        //TODO new window popup with template
         JButton addButton = new JButton("Add");
-        JButton filterButton = new JButton("Filter");
-        JButton removeButton = new JButton("Remove");
         toolBar.add(addButton);
+
+        JButton filterButton = new JButton("Filter");
         toolBar.add(filterButton);
+
+        
+        JButton removeButton = new JButton("Remove");
         toolBar.add(removeButton);
 
         JMenuBar menuBar = new JMenuBar();
@@ -25,8 +29,9 @@ public class MainWindow extends JFrame {
         menuBar.add(fileMenu);
 
         //TODO add icons
-        JMenuItem loadMenuItem = new JMenuItem("Load");
-        fileMenu.add(loadMenuItem);
+        JMenuItem openMenuItem = new JMenuItem("Open");
+        fileMenu.add(openMenuItem);
+
         JMenuItem saveMenuItem = new JMenuItem("Save");
         fileMenu.add(saveMenuItem);
 
