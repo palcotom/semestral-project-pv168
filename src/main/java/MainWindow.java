@@ -24,20 +24,15 @@ public class MainWindow extends JFrame {
 
     private MainWindow() {
         try {
-            // Set cross-platform Java L&F (also called "Metal")
             UIManager.setLookAndFeel ("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         }
         catch (UnsupportedLookAndFeelException e) {
-            // handle exception
         }
         catch (ClassNotFoundException e) {
-            // handle exception
         }
         catch (InstantiationException e) {
-            // handle exception
         }
         catch (IllegalAccessException e) {
-            // handle exception
         }
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -45,7 +40,7 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
-        JButton addButton = new JButton("Add");
+        JButton addButton = new JButton("Add",new ImageIcon(MainWindow.class.getResource("icons8-windows-10-32.png")));
         toolBar.add(addButton);
 
         //Simplistic dialog for creating new elements
@@ -83,7 +78,7 @@ public class MainWindow extends JFrame {
         JButton filterButton = new JButton("Filter");
         toolBar.add(filterButton);
 
-        JButton removeButton = new JButton("Remove");
+        JButton removeButton = new JButton("Remove", new ImageIcon(MainWindow.class.getResource("icons8-remove-30.png")));
 
         table.getSelectionModel().addListSelectionListener(e -> {
             boolean rowSelected = table.getSelectedRow() >= 0;
@@ -107,10 +102,10 @@ public class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try{
-                    int name = JOptionPane.showConfirmDialog(null, myPanel,"Enter values",JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+                    int addOptionDialog = JOptionPane.showConfirmDialog(null, myPanel,"Enter values",JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE); //displays dialog for creating new item
 
-                    if (name == JOptionPane.OK_OPTION){
-                        java.util.Date textFieldAsDate = null;
+                    if (addOptionDialog == JOptionPane.OK_OPTION){  //if ok button pressed
+                        java.util.Date textFieldAsDate = null;  //convert date in for mof dd/MM/yyyy to java.util.Date
                         try {
                             textFieldAsDate = format.parse(dateField.getText());
                         } catch (Exception e) {
@@ -153,5 +148,6 @@ public class MainWindow extends JFrame {
         EventQueue.invokeLater(() ->
                 new MainWindow().setVisible(true));
     }
+
 }
 
