@@ -15,7 +15,7 @@ import java.util.List;
  * @author Oskar Spacek
  */
 public class MainWindow extends JFrame {
-    private final static DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    private final DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
             new Coffee("Mocha", new Date(11), "Arabica", 100, "Yemen", "Light"),
@@ -72,16 +72,7 @@ public class MainWindow extends JFrame {
         myPanel.add(bakingField);
 
 
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                try{
-                    int name = JOptionPane.showConfirmDialog(null, myPanel,"Enter values",JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-                } catch (Exception ex) {
 
-                }
-            }
-        });
 
         TableModel tableModel = new CoffeeTableModel(new ArrayList<>(TEST_DATA));
 
@@ -110,6 +101,28 @@ public class MainWindow extends JFrame {
             }
             int modelRow = table.convertRowIndexToModel(selectedRow);
             ((CoffeeTableModel) table.getModel()).deleteRow(modelRow);
+        });
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try{
+                    int name = JOptionPane.showConfirmDialog(null, myPanel,"Enter values",JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+                    if (name == JOptionPane.OK_OPTION){
+                        java.util.Date textFieldAsDate = null;
+                        try {
+                            textFieldAsDate = format.parse(dateField.getText());
+                        } catch (Exception e) {
+                            // deal with ParseException
+                        }
+                        Coffee form_coffee = new Coffee(nameField.getText(), textFieldAsDate , typeField.getText(), Integer.parseInt(weightField.getText()), originField.getToolTipText(), bakingField.getText());
+                        ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
+                    }
+                } catch (Exception ex) {
+
+                }
+            }
         });
 
         toolBar.add(removeButton);
