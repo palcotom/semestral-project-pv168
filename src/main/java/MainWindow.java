@@ -1,15 +1,44 @@
+import com.google.common.collect.ImmutableList;
+
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Oskar Spacek
  */
 public class MainWindow extends JFrame {
+    private final static DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+    private static final List<Coffee> TEST_DATA = ImmutableList.of(
+            new Coffee("Mocha", new Date(11), "Arabica", 100, "Yemen", "Light"),
+            new Coffee("Mocha", new Date(40), "Arabica", 150, "Yemen", "Medium")
+    );
 
     private MainWindow() {
+        try {
+            // Set cross-platform Java L&F (also called "Metal")
+            UIManager.setLookAndFeel ("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        }
+        catch (UnsupportedLookAndFeelException e) {
+            // handle exception
+        }
+        catch (ClassNotFoundException e) {
+            // handle exception
+        }
+        catch (InstantiationException e) {
+            // handle exception
+        }
+        catch (IllegalAccessException e) {
+            // handle exception
+        }
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,7 +84,7 @@ public class MainWindow extends JFrame {
         });
 
         //added empty table
-        TableModel tableModel = new CoffeeTableModel(null);
+        TableModel tableModel = new CoffeeTableModel(new ArrayList<>(TEST_DATA));
 
         JTable table = new JTable(tableModel);
         table.setRowHeight(20);
