@@ -15,7 +15,7 @@ import java.util.List;
  * @author Oskar Spacek
  */
 public class MainWindow extends JFrame {
-    private final static DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    private final DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
             new Coffee("Mocha", new Date(11), "Arabica", 100, "Yemen", "Light"),
@@ -24,20 +24,15 @@ public class MainWindow extends JFrame {
 
     private MainWindow() {
         try {
-            // Set cross-platform Java L&F (also called "Metal")
             UIManager.setLookAndFeel ("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         }
         catch (UnsupportedLookAndFeelException e) {
-            // handle exception
         }
         catch (ClassNotFoundException e) {
-            // handle exception
         }
         catch (InstantiationException e) {
-            // handle exception
         }
         catch (IllegalAccessException e) {
-            // handle exception
         }
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -45,7 +40,7 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
-        JButton addButton = new JButton("Add");
+        JButton addButton = new JButton("Add",new ImageIcon(MainWindow.class.getResource("icons8-windows-10-32.png")));
         toolBar.add(addButton);
 
         //Simplistic dialog for creating new elements
@@ -72,18 +67,8 @@ public class MainWindow extends JFrame {
         myPanel.add(bakingField);
 
 
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                try{
-                    int name = JOptionPane.showConfirmDialog(null, myPanel,"Enter values",JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-                } catch (Exception ex) {
 
-                }
-            }
-        });
 
-        //added empty table
         TableModel tableModel = new CoffeeTableModel(new ArrayList<>(TEST_DATA));
 
         JTable table = new JTable(tableModel);
@@ -93,7 +78,48 @@ public class MainWindow extends JFrame {
         JButton filterButton = new JButton("Filter");
         toolBar.add(filterButton);
 
-        JButton removeButton = new JButton("Remove");
+        JButton removeButton = new JButton("Remove", new ImageIcon(MainWindow.class.getResource("icons8-remove-30.png")));
+
+        table.getSelectionModel().addListSelectionListener(e -> {
+            boolean rowSelected = table.getSelectedRow() >= 0;
+            removeButton.setEnabled(rowSelected);
+        });
+
+        //4
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+
+        removeButton.addActionListener( e -> {
+            int selectedRow = table.getSelectedRow();
+            if (selectedRow < 0 ){
+                throw new IllegalStateException("No row selected");
+            }
+            int modelRow = table.convertRowIndexToModel(selectedRow);
+            ((CoffeeTableModel) table.getModel()).deleteRow(modelRow);
+        });
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try{
+                    int addOptionDialog = JOptionPane.showConfirmDialog(null, myPanel,"Enter values",JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE); //displays dialog for creating new item
+
+                    if (addOptionDialog == JOptionPane.OK_OPTION){  //if ok button pressed
+                        java.util.Date textFieldAsDate = null;  //convert date in for mof dd/MM/yyyy to java.util.Date
+                        try {
+                            textFieldAsDate = format.parse(dateField.getText());
+                        } catch (Exception e) {
+                            // deal with ParseException
+                        }
+                        Coffee form_coffee = new Coffee(nameField.getText(), textFieldAsDate , typeField.getText(), Integer.parseInt(weightField.getText()), originField.getToolTipText(), bakingField.getText());
+                        ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
+                    }
+                } catch (Exception ex) {
+
+                }
+            }
+        });
+
         toolBar.add(removeButton);
 
         JMenuBar menuBar = new JMenuBar();
@@ -122,5 +148,6 @@ public class MainWindow extends JFrame {
         EventQueue.invokeLater(() ->
                 new MainWindow().setVisible(true));
     }
+
 }
 

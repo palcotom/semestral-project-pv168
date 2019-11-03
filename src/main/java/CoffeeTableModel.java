@@ -89,4 +89,9 @@ public class CoffeeTableModel extends AbstractTableModel {
         coffees.remove(index);
         fireTableRowsDeleted(index,index);
     }
+
+    public void addRow(Coffee coffee){
+        coffees.add(coffee);
+        fireTableRowsInserted(getRowCount(),getRowCount());
+    }
 }
