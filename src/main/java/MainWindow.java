@@ -83,7 +83,6 @@ public class MainWindow extends JFrame {
             }
         });
 
-        //added empty table
         TableModel tableModel = new CoffeeTableModel(new ArrayList<>(TEST_DATA));
 
         JTable table = new JTable(tableModel);
@@ -94,6 +93,25 @@ public class MainWindow extends JFrame {
         toolBar.add(filterButton);
 
         JButton removeButton = new JButton("Remove");
+
+        table.getSelectionModel().addListSelectionListener(e -> {
+            boolean rowSelected = table.getSelectedRow() >= 0;
+            removeButton.setEnabled(rowSelected);
+        });
+
+        //4
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+
+        removeButton.addActionListener( e -> {
+            int selectedRow = table.getSelectedRow();
+            if (selectedRow < 0 ){
+                throw new IllegalStateException("No row selected");
+            }
+            int modelRow = table.convertRowIndexToModel(selectedRow);
+            ((CoffeeTableModel) table.getModel()).deleteRow(modelRow);
+        });
+
         toolBar.add(removeButton);
 
         JMenuBar menuBar = new JMenuBar();
