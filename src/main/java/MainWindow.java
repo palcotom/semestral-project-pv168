@@ -75,7 +75,7 @@ public class MainWindow extends JFrame {
         table.setRowHeight(20);
         add(new JScrollPane(table));
 
-        JButton filterButton = new JButton("Filter");
+        JButton filterButton = new JButton("Filter", new ImageIcon(MainWindow.class.getResource("filter-tool-black-shape.png")));
         toolBar.add(filterButton);
 
         JButton removeButton = new JButton("Remove", new ImageIcon(MainWindow.class.getResource("icons8-remove-30.png")));
