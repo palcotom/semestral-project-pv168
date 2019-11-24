@@ -60,6 +60,29 @@ public class MainWindow extends JFrame {
         table.setRowSorter(sorter);
         add(new JScrollPane(table));
 
+        //Simplistic dialog for creating new elements
+        JTextField nameField = new JTextField(5);
+        JTextField dateField = new JTextField(5);
+        JTextField typeField = new JTextField(5);
+        JTextField weightField = new JTextField(5);
+        JTextField originField = new JTextField(5);
+        JTextField bakingField = new JTextField(5);
+
+        JPanel addOptionPanel = new JPanel();
+        addOptionPanel.setLayout(new BoxLayout(addOptionPanel, BoxLayout.PAGE_AXIS));
+        addOptionPanel.add(new JLabel("Name:"));
+        addOptionPanel.add(nameField);
+        addOptionPanel.add(new JLabel("Date:"));
+        addOptionPanel.add(dateField);
+        addOptionPanel.add(new JLabel("Type:"));
+        addOptionPanel.add(typeField);
+        addOptionPanel.add(new JLabel("Weight:"));
+        addOptionPanel.add(weightField);
+        addOptionPanel.add(new JLabel("Origin:"));
+        addOptionPanel.add(originField);
+        addOptionPanel.add(new JLabel("Roasting:"));
+        addOptionPanel.add(bakingField);
+
         JTextField filterText = new JTextField(5);
         JPanel filterOptionPanel = new JPanel();
         filterOptionPanel.add(new JLabel("Filter by Name:"));
@@ -109,28 +132,6 @@ public class MainWindow extends JFrame {
             ((CoffeeTableModel) table.getModel()).deleteRow(modelRow);
         });
 
-        //Simplistic dialog for creating new elements
-        JTextField nameField = new JTextField(5);
-        JTextField dateField = new JTextField(5);
-        JTextField typeField = new JTextField(5);
-        JTextField weightField = new JTextField(5);
-        JTextField originField = new JTextField(5);
-        JTextField bakingField = new JTextField(5);
-
-        JPanel addOptionPanel = new JPanel();
-        addOptionPanel.setLayout(new BoxLayout(addOptionPanel, BoxLayout.PAGE_AXIS));
-        addOptionPanel.add(new JLabel("Name:"));
-        addOptionPanel.add(nameField);
-        addOptionPanel.add(new JLabel("Date:"));
-        addOptionPanel.add(dateField);
-        addOptionPanel.add(new JLabel("Type:"));
-        addOptionPanel.add(typeField);
-        addOptionPanel.add(new JLabel("Weight:"));
-        addOptionPanel.add(weightField);
-        addOptionPanel.add(new JLabel("Origin:"));
-        addOptionPanel.add(originField);
-        addOptionPanel.add(new JLabel("Roasting:"));
-        addOptionPanel.add(bakingField);
 
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -143,13 +144,13 @@ public class MainWindow extends JFrame {
                         try {
                             textFieldAsDate = format.parse(dateField.getText());
                         } catch (Exception e) {
-                            // deal with ParseException
+                            System.out.println(e);
                         }
-                        Coffee form_coffee = new Coffee(nameField.getText(), textFieldAsDate , typeField.getText(), Integer.parseInt(weightField.getText()), originField.getToolTipText(), bakingField.getText());
+                        Coffee form_coffee = new Coffee(nameField.getText(), textFieldAsDate , typeField.getText(), Integer.parseInt(weightField.getText()), originField.getText(), bakingField.getText());
                         ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
                     }
                 } catch (Exception ex) {
-
+                    System.out.println(ex);
                 }
             }
         });

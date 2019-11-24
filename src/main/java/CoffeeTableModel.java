@@ -92,6 +92,8 @@ public class CoffeeTableModel extends AbstractTableModel {
 
     public void addRow(Coffee coffee){
         coffees.add(coffee);
-        fireTableRowsInserted(getRowCount(),getRowCount());
+        System.out.println("did add row");
+        fireTableRowsInserted(getRowCount()-1,getRowCount()-1);
+        System.out.println("fired");
     }
 }
