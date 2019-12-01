@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d8a14a-dbdd-4213-9553-0deb2b6fe772" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CoffeeShop/AddAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CoffeeShop/FilterAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CoffeeShop/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CoffeeTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CoffeeShop/Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CoffeeShop/CoffeeTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DeleteAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CoffeeShop/DeleteAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ExitAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CoffeeShop/ExitAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +68,7 @@
   </component>
   <component name="RunManager">
     <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainWindow" />
+      <option name="MAIN_CLASS_NAME" value="CoffeeShop.MainWindow" />
       <module name="semestral_project" />
       <method v="2">
         <option name="Make" enabled="true" />

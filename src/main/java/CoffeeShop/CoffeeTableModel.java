@@ -1,5 +1,6 @@
+package CoffeeShop;
+
 import javax.swing.table.AbstractTableModel;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -92,8 +93,6 @@ public class CoffeeTableModel extends AbstractTableModel {
 
     public void addRow(Coffee coffee){
         coffees.add(coffee);
-        System.out.println("did add row");
         fireTableRowsInserted(getRowCount()-1,getRowCount()-1);
-        System.out.println("fired");
     }
 }

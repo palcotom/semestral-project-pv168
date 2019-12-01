@@ -1,3 +1,4 @@
+package CoffeeShop;
 import java.util.Date;
 
 public class Coffee {
@@ -7,9 +8,6 @@ public class Coffee {
     private final Number weight;
     private final String origin;
     private final String roasting;
-
-
-
 
     public Coffee (String name, Date date, String type, Number weight, String origin, String roasting ){
         this.name=name;
