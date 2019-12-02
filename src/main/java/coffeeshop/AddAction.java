@@ -1,4 +1,4 @@
-package CoffeeShop;
+package coffeeshop;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,18 +13,16 @@ public class AddAction extends AbstractAction {
     private final JTextField dateField;
     private final JTextField typeField;
     private final JTextField weightField;
-    private final JTextField originField;
-    private final JTextField bakingField;
+    private final JTextField roastingField;
 
-    public AddAction(JTable table, JPanel addOptionPanel, JTextField nameField, JTextField dateField, JTextField typeField,JTextField weightField, JTextField originField, JTextField bakingField){
+    public AddAction(JTable table, JPanel addOptionPanel, JTextField nameField, JTextField dateField, JTextField typeField,JTextField weightField, JTextField bakingField){
         this.table=table;
         this.addOptionPanel=addOptionPanel;
         this.nameField=nameField;
         this.dateField=dateField;
         this.typeField=typeField;
         this.weightField=weightField;
-        this.originField=originField;
-        this.bakingField=bakingField;
+        this.roastingField =bakingField;
     }
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
@@ -38,7 +36,7 @@ public class AddAction extends AbstractAction {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-                Coffee form_coffee = new Coffee(nameField.getText(), textFieldAsDate, typeField.getText(), Integer.parseInt(weightField.getText()), originField.getText(), bakingField.getText());
+                Coffee form_coffee = new Coffee(nameField.getText(), textFieldAsDate, typeField.getText(), Integer.parseInt(weightField.getText()), Roasting.fromString(roastingField.getText()));
                 ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
             }
         } catch (Exception ex) {

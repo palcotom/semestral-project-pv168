@@ -1,4 +1,4 @@
-package CoffeeShop;
+package coffeeshop;
 
 import com.google.common.collect.ImmutableList;
 
@@ -22,11 +22,11 @@ public class MainWindow extends JFrame {
     private final JTextField bakingField = new JTextField(5);
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
-            new Coffee("Mocha", new Date(11), "Arabica", 100, "Yemen", "Light"),
-            new Coffee("Mocha", new Date(40), "Arabica", 150, "Yemen", "Medium"),
-            new Coffee("Robusta", new Date(4000), "Arabica", 50, "Yemen", "Medium"),
-            new Coffee("Liberica", new Date(40000), "Arabica", 250, "Yemen", "Medium"),
-            new Coffee("Robusta", new Date(405000), "Arabica", 150, "Yemen", "Medium")
+            new Coffee("Mocha", new Date(11), "Arabica", 100, Roasting.LIGHT),
+            new Coffee("Mocha", new Date(40), "Arabica", 150, Roasting.MEDIUM),
+            new Coffee("Robusta", new Date(4000), "Arabica", 50, Roasting.MEDIUM),
+            new Coffee("Liberica", new Date(40000), "Arabica", 250,  Roasting.MEDIUM),
+            new Coffee("Robusta", new Date(405000), "Arabica", 150,  Roasting.MEDIUM)
     );
 
     private MainWindow() {
@@ -54,7 +54,7 @@ public class MainWindow extends JFrame {
 
         JButton addButton = new JButton("Add", new ImageIcon(MainWindow.class.getResource("../icons8-windows-10-32.png")));
         toolBar.add(addButton);
-        addButton.addActionListener(new AddAction(table, addOptionPanel, nameField, dateField, typeField, weightField, originField, bakingField));
+        addButton.addActionListener(new AddAction(table, addOptionPanel, nameField, dateField, typeField, weightField, bakingField));
 
         JButton filterButton = new JButton("Filter", new ImageIcon(MainWindow.class.getResource("../filter-tool-black-shape.png")));
         filterButton.addActionListener(new FilterAction(sorter));
@@ -94,14 +94,12 @@ public class MainWindow extends JFrame {
         addOptionPanel.setLayout(new BoxLayout(addOptionPanel, BoxLayout.PAGE_AXIS));
         addOptionPanel.add(new JLabel("Name:"));
         addOptionPanel.add(nameField);
-        addOptionPanel.add(new JLabel("Date:"));
+        addOptionPanel.add(new JLabel("Date: dd/mm/yyyy"));
         addOptionPanel.add(dateField);
         addOptionPanel.add(new JLabel("Type:"));
         addOptionPanel.add(typeField);
         addOptionPanel.add(new JLabel("Weight:"));
         addOptionPanel.add(weightField);
-        addOptionPanel.add(new JLabel("Origin:"));
-        addOptionPanel.add(originField);
         addOptionPanel.add(new JLabel("Roasting:"));
         addOptionPanel.add(bakingField);
     }
