@@ -18,8 +18,14 @@ public class MainWindow extends JFrame {
     private final JTextField dateField = new JTextField(5);
     private final JTextField typeField = new JTextField(5);
     private final JTextField weightField = new JTextField(5);
-    private final JTextField originField = new JTextField(5);
     private final JTextField bakingField = new JTextField(5);
+    private final JComboBox roastingBox = new JComboBox(Roasting.values());  //TODO replace bakingField in addDialog with roastingBox that displays Roasting enum options
+
+    //TODO add reasonable response in catch bocks
+    //TODO possibly add multiple formats of date input
+    //TODO add case insensitivity in filtering
+    //TODO clean up Coffee class (remove unnecessary / add missing attributes)
+    //TODO edit existing items ? possibly not needed but something to consider
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
             new Coffee("Mocha", new Date(11), "Arabica", 100, Roasting.LIGHT),
@@ -52,16 +58,22 @@ public class MainWindow extends JFrame {
         JPanel addOptionPanel = new JPanel();
         addOptionWindow(addOptionPanel);
 
-        JButton addButton = new JButton("Add", new ImageIcon(MainWindow.class.getResource("../icons8-windows-10-32.png")));
+        JButton addButton = new JButton("Add",
+                new ImageIcon(MainWindow.class.getResource("../icons8-windows-10-32.png"))
+        );
         toolBar.add(addButton);
         addButton.addActionListener(new AddAction(table, addOptionPanel, nameField, dateField, typeField, weightField, bakingField));
 
-        JButton filterButton = new JButton("Filter", new ImageIcon(MainWindow.class.getResource("../filter-tool-black-shape.png")));
+        JButton filterButton = new JButton("Filter",
+                new ImageIcon(MainWindow.class.getResource("../filter-tool-black-shape.png"))
+        );
         filterButton.addActionListener(new FilterAction(sorter));
         toolBar.add(filterButton);
 
-        JButton removeButton = new JButton("Remove", new ImageIcon(MainWindow.class.getResource("../icons8-remove-30.png")));
-        removeButton.addActionListener(new DeleteAction(table));
+        JButton removeButton = new JButton("Remove",
+                new ImageIcon(MainWindow.class.getResource("../icons8-remove-30.png")));
+        removeButton.addActionListener(new DeleteAction(table)
+        );
         toolBar.add(removeButton);
 
         table.getSelectionModel().addListSelectionListener(e -> {
@@ -73,7 +85,7 @@ public class MainWindow extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
-        JMenuItem openMenuItem = new JMenuItem("Open");
+        JMenuItem openMenuItem = new JMenuItem("Open");  //TODO are these items needed ?
         fileMenu.add(openMenuItem);
         JMenuItem saveMenuItem = new JMenuItem("Save");
         fileMenu.add(saveMenuItem);
@@ -102,6 +114,8 @@ public class MainWindow extends JFrame {
         addOptionPanel.add(weightField);
         addOptionPanel.add(new JLabel("Roasting:"));
         addOptionPanel.add(bakingField);
+        addOptionPanel.add(new JLabel("Roasting enum:"));
+        addOptionPanel.add(roastingBox);
     }
 
 

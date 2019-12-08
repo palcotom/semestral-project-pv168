@@ -8,9 +8,6 @@ public enum Roasting {
         this.text=text;
     }
 
-    public String getText() {
-        return text;
-    }
 
     public static Roasting fromString(String txt){
         for (Roasting roasting : Roasting.values()) {

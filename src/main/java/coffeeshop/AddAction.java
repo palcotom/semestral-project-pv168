@@ -27,7 +27,10 @@ public class AddAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         try {
-            int addOptionDialog = JOptionPane.showConfirmDialog(null, addOptionPanel, "Enter values", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE); //displays dialog for creating new item
+            int addOptionDialog = JOptionPane.showConfirmDialog(null, addOptionPanel,
+                    "Enter values",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.PLAIN_MESSAGE); //displays dialog for creating new item
 
             if (addOptionDialog == JOptionPane.OK_OPTION) {  //if ok button pressed
                 java.util.Date textFieldAsDate = null;  //convert date in for mof dd/MM/yyyy to java.util.Date
@@ -36,7 +39,13 @@ public class AddAction extends AbstractAction {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-                Coffee form_coffee = new Coffee(nameField.getText(), textFieldAsDate, typeField.getText(), Integer.parseInt(weightField.getText()), Roasting.fromString(roastingField.getText()));
+                Coffee form_coffee = new Coffee(
+                        nameField.getText(),
+                        textFieldAsDate,
+                        typeField.getText(),
+                        Integer.parseInt(weightField.getText()),
+                        Roasting.fromString(roastingField.getText())
+                );
                 ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
             }
         } catch (Exception ex) {

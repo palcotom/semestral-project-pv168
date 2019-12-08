@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d8a14a-dbdd-4213-9553-0deb2b6fe772" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Roasting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeShop/AddAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeShop/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Coffee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeShop/CoffeeTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/CoffeeTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeShop/DeleteAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/DeleteAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeShop/ExitAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/ExitAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeShop/FilterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/FilterAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoffeeShop/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Roasting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Roasting.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +48,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
