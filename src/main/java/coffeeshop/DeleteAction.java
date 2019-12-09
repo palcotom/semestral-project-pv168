@@ -12,6 +12,7 @@ public class DeleteAction extends AbstractAction {
         this.table = table;
     }
 
+    //TODO add popup button for confirmation
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
 

@@ -19,14 +19,11 @@ public class MainWindow extends JFrame {
     private final JTextField dateField = new JTextField(5);
     private final JTextField typeField = new JTextField(5);
     private final JTextField weightField = new JTextField(5);
-    private String[] roastingList = {"Unroasted", "Light", "Medium", "Dark"}; //TODO rewrite to be updated form enum
-    private final JComboBox roastingBox = new JComboBox<>(roastingList);
+    private final JComboBox roastingBox = new JComboBox<>(Roasting.values());
 
-    //TODO replace bakingField in addDialog with roastingBox that displays Roasting enum options
-    //TODO add reasonable response in catch blocks
+    //TODO swing worker
+    //TODO AddPanel separatni class -> vycisti main
     //TODO possibly add multiple formats of date input
-    //TODO add case insensitivity in filtering
-    //TODO other options for filtering
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
     //TODO edit existing items ? possibly not needed but something to consider
 
@@ -41,10 +38,8 @@ public class MainWindow extends JFrame {
     private MainWindow() {
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (UnsupportedLookAndFeelException e) {
-        } catch (ClassNotFoundException e) {
-        } catch (InstantiationException e) {
-        } catch (IllegalAccessException e) {
+        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            // TODO log exception with warning
         }
 
         TableModel tableModel = new CoffeeTableModel(new ArrayList<>(TEST_DATA));
