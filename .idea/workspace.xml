@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d8a14a-dbdd-4213-9553-0deb2b6fe772" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" afterDir="false" />
@@ -12,6 +14,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CheckStyle-IDEA-workspace">
+    <option name="configuration">
+      <map>
+        <entry key="last-active-plugin-version" value="5.22.1" />
+      </map>
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,6 +99,7 @@
       <workItem from="1570922646748" duration="910000" />
       <workItem from="1570972893008" duration="5756000" />
       <workItem from="1571002277716" duration="1056000" />
+      <workItem from="1575883007563" duration="1222000" />
     </task>
     <servers />
   </component>

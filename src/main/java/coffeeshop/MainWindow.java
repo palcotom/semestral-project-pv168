@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Oskar Spacek
+ * @author Oskar Spacek, Tomas Palco
  */
 public class MainWindow extends JFrame {
     private final JTextField nameField = new JTextField(5);
@@ -19,9 +19,10 @@ public class MainWindow extends JFrame {
     private final JTextField typeField = new JTextField(5);
     private final JTextField weightField = new JTextField(5);
     private final JTextField bakingField = new JTextField(5);
-    private final JComboBox roastingBox = new JComboBox(Roasting.values());  //TODO replace bakingField in addDialog with roastingBox that displays Roasting enum options
+    private final JComboBox roastingBox = new JComboBox(Roasting.values());
 
-    //TODO add reasonable response in catch bocks
+    //TODO replace bakingField in addDialog with roastingBox that displays Roasting enum options
+    //TODO add reasonable response in catch blocks
     //TODO possibly add multiple formats of date input
     //TODO add case insensitivity in filtering
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
@@ -62,7 +63,8 @@ public class MainWindow extends JFrame {
                 new ImageIcon(MainWindow.class.getResource("../icons8-windows-10-32.png"))
         );
         toolBar.add(addButton);
-        addButton.addActionListener(new AddAction(table, addOptionPanel, nameField, dateField, typeField, weightField, bakingField));
+        addButton.addActionListener(new AddAction(table, addOptionPanel, nameField, dateField, typeField, weightField,
+                roastingBox));
 
         JButton filterButton = new JButton("Filter",
                 new ImageIcon(MainWindow.class.getResource("../filter-tool-black-shape.png"))

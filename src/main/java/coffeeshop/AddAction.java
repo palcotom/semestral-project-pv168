@@ -13,17 +13,19 @@ public class AddAction extends AbstractAction {
     private final JTextField dateField;
     private final JTextField typeField;
     private final JTextField weightField;
-    private final JTextField roastingField;
+    private final JComboBox roastingBox;
 
-    public AddAction(JTable table, JPanel addOptionPanel, JTextField nameField, JTextField dateField, JTextField typeField,JTextField weightField, JTextField bakingField){
+    public AddAction(JTable table, JPanel addOptionPanel, JTextField nameField, JTextField dateField,
+                     JTextField typeField, JTextField weightField, JComboBox roastingBox){
         this.table=table;
         this.addOptionPanel=addOptionPanel;
         this.nameField=nameField;
         this.dateField=dateField;
         this.typeField=typeField;
         this.weightField=weightField;
-        this.roastingField =bakingField;
+        this.roastingBox=roastingBox;
     }
+
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         try {
@@ -44,7 +46,7 @@ public class AddAction extends AbstractAction {
                         textFieldAsDate,
                         typeField.getText(),
                         Integer.parseInt(weightField.getText()),
-                        Roasting.fromString(roastingField.getText())
+                        (JComboBox)actionEvent.getSource()// TODO vybrat enum - get selected
                 );
                 ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
             }
