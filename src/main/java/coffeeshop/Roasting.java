@@ -1,7 +1,5 @@
 package coffeeshop;
 
-import java.awt.event.ActionEvent;
-
 public enum Roasting {
     UNROASTED("Unroasted"),
     LIGHT("Light"),
@@ -14,7 +12,6 @@ public enum Roasting {
         this.text=text;
     }
 
-    // TODO redundant?
     public static Roasting fromString(String txt){
         for (Roasting roasting : Roasting.values()) {
             if (roasting.text.equalsIgnoreCase(txt)) {

@@ -36,17 +36,27 @@ public class AddAction extends AbstractAction {
 
             if (addOptionDialog == JOptionPane.OK_OPTION) {  //if ok button pressed
                 java.util.Date textFieldAsDate = null;  //convert date in for mof dd/MM/yyyy to java.util.Date
+                //TODO offer todays date as preset
                 try {
                     textFieldAsDate = format.parse(dateField.getText());
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+                /*
+                aComboBox.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                // Combobox specific code
+                }
+                 */
+                //TODO "java.lang.ClassCastException: javax.swing.JButton cannot be cast to javax.swing.JComboBox"
+                JComboBox cb = (JComboBox)actionEvent.getSource();
+                String selectedOption = (String)cb.getSelectedItem();
                 Coffee form_coffee = new Coffee(
                         nameField.getText(),
                         textFieldAsDate,
                         typeField.getText(),
                         Integer.parseInt(weightField.getText()),
-                        (JComboBox)actionEvent.getSource()// TODO vybrat enum - get selected
+                        Roasting.fromString(selectedOption)
                 );
                 ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
             }

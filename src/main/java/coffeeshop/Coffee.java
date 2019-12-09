@@ -32,7 +32,6 @@ public class Coffee {
         return weight;
     }
 
-
     public Roasting getRoasting() {
         return roasting;
     }

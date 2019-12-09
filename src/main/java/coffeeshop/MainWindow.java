@@ -8,6 +8,7 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,13 +19,14 @@ public class MainWindow extends JFrame {
     private final JTextField dateField = new JTextField(5);
     private final JTextField typeField = new JTextField(5);
     private final JTextField weightField = new JTextField(5);
-    private final JTextField bakingField = new JTextField(5);
-    private final JComboBox roastingBox = new JComboBox(Roasting.values());
+    private String[] roastingList = {"Unroasted", "Light", "Medium", "Dark"}; //TODO rewrite to be updated form enum
+    private final JComboBox roastingBox = new JComboBox<>(roastingList);
 
     //TODO replace bakingField in addDialog with roastingBox that displays Roasting enum options
     //TODO add reasonable response in catch blocks
     //TODO possibly add multiple formats of date input
     //TODO add case insensitivity in filtering
+    //TODO other options for filtering
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
     //TODO edit existing items ? possibly not needed but something to consider
 
@@ -115,8 +117,6 @@ public class MainWindow extends JFrame {
         addOptionPanel.add(new JLabel("Weight:"));
         addOptionPanel.add(weightField);
         addOptionPanel.add(new JLabel("Roasting:"));
-        addOptionPanel.add(bakingField);
-        addOptionPanel.add(new JLabel("Roasting enum:"));
         addOptionPanel.add(roastingBox);
     }
 

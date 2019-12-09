@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d8a14a-dbdd-4213-9553-0deb2b6fe772" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Coffee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Roasting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Roasting.java" afterDir="false" />
     </list>
@@ -54,6 +53,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -100,6 +100,7 @@
       <workItem from="1570972893008" duration="5756000" />
       <workItem from="1571002277716" duration="1056000" />
       <workItem from="1575883007563" duration="1222000" />
+      <workItem from="1575891574456" duration="9923000" />
     </task>
     <servers />
   </component>
