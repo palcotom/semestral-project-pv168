@@ -17,7 +17,9 @@ public class FilterAction extends AbstractAction {
      */
     private String caseNormalization(JTextField jText) {
         String text = jText.getText().toLowerCase();
-        text = text.replace(text.charAt(0), text.toUpperCase().charAt(0));
+        if (text.length() > 0){
+            text = text.replace(text.charAt(0), text.toUpperCase().charAt(0));
+        }
         return text;
     }
 
