@@ -1,8 +1,12 @@
 package coffeeshop;
 
 import javax.swing.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AddWindow extends JPanel {
+    private final DateFormat format = new SimpleDateFormat("dd/mm/yyyy");
     private final JTextField nameField = new JTextField(5);
     private final JTextField dateField = new JTextField(5);
     private final JTextField typeField = new JTextField(5);
@@ -14,6 +18,8 @@ public class AddWindow extends JPanel {
         this.add(new JLabel("Name:"));
         this.add(nameField);
         this.add(new JLabel("Date: dd/mm/yyyy"));
+        Date date = new Date(System.currentTimeMillis());
+        this.dateField.setText(format.format(date));
         this.add(dateField);
         this.add(new JLabel("Type:"));
         this.add(typeField);

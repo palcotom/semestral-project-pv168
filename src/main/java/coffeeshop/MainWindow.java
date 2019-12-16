@@ -17,7 +17,7 @@ import java.util.List;
 public class MainWindow extends JFrame {
 
     //TODO swing worker
-    //TODO AddPanel separatni class -> vycisti main
+    //TODO vycisti main
     //TODO possibly add multiple formats of date input
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
     //TODO edit existing items ? possibly not needed but something to consider

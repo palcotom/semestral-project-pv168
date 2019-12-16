@@ -36,7 +36,6 @@ public class AddAction extends AbstractAction {
 
             if (addOptionDialog == JOptionPane.OK_OPTION) {  //if ok button pressed
                 java.util.Date textFieldAsDate = null;  //convert date in for mof dd/MM/yyyy to java.util.Date
-                //TODO offer todays date as preset
                 try {
                     textFieldAsDate = format.parse(dateField.getText());
                 } catch (Exception e) {
