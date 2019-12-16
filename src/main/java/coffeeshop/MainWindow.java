@@ -15,11 +15,6 @@ import java.util.List;
  * @author Oskar Spacek, Tomas Palco
  */
 public class MainWindow extends JFrame {
-    private final JTextField nameField = new JTextField(5);
-    private final JTextField dateField = new JTextField(5);
-    private final JTextField typeField = new JTextField(5);
-    private final JTextField weightField = new JTextField(5);
-    private final JComboBox roastingBox = new JComboBox<>(Roasting.values());
 
     //TODO swing worker
     //TODO AddPanel separatni class -> vycisti main
@@ -53,15 +48,15 @@ public class MainWindow extends JFrame {
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
         add(new JScrollPane(table));
-        JPanel addOptionPanel = new JPanel();
-        addOptionWindow(addOptionPanel);
+        AddWindow addOptionPanel = new AddWindow();
 
         JButton addButton = new JButton("Add",
                 new ImageIcon(MainWindow.class.getResource("../icons8-windows-10-32.png"))
         );
         toolBar.add(addButton);
-        addButton.addActionListener(new AddAction(table, addOptionPanel, nameField, dateField, typeField, weightField,
-                roastingBox));
+        addButton.addActionListener(new AddAction(table, addOptionPanel, addOptionPanel.getNameField(),
+                addOptionPanel.getDateField(), addOptionPanel.getTypeField(), addOptionPanel.getWeightField(),
+                addOptionPanel.getRoastingBox()));
 
         JButton filterButton = new JButton("Filter",
                 new ImageIcon(MainWindow.class.getResource("../filter-tool-black-shape.png"))
@@ -98,21 +93,6 @@ public class MainWindow extends JFrame {
 
         EventQueue.invokeLater(() ->
                 new MainWindow().setVisible(true));
-    }
-
-    public void addOptionWindow(JPanel addOptionPanel) {
-
-        addOptionPanel.setLayout(new BoxLayout(addOptionPanel, BoxLayout.PAGE_AXIS));
-        addOptionPanel.add(new JLabel("Name:"));
-        addOptionPanel.add(nameField);
-        addOptionPanel.add(new JLabel("Date: dd/mm/yyyy"));
-        addOptionPanel.add(dateField);
-        addOptionPanel.add(new JLabel("Type:"));
-        addOptionPanel.add(typeField);
-        addOptionPanel.add(new JLabel("Weight:"));
-        addOptionPanel.add(weightField);
-        addOptionPanel.add(new JLabel("Roasting:"));
-        addOptionPanel.add(roastingBox);
     }
 
 
