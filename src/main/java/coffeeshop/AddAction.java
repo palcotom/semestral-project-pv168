@@ -6,7 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class AddAction extends AbstractAction {
-    private final DateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+    private final DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     private final JTable table;
     private final JPanel addOptionPanel;
     private final JTextField nameField;

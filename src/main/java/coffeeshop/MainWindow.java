@@ -23,11 +23,11 @@ public class MainWindow extends JFrame {
     //TODO edit existing items ? possibly not needed but something to consider
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
-            new Coffee("Mocha", new Date(11), "Arabica", 100, Roasting.LIGHT),
-            new Coffee("Mocha", new Date(40), "Arabica", 150, Roasting.MEDIUM),
-            new Coffee("Robusta", new Date(4000), "Arabica", 50, Roasting.MEDIUM),
-            new Coffee("Liberica", new Date(40000), "Arabica", 250,  Roasting.MEDIUM),
-            new Coffee("Robusta", new Date(405000), "Arabica", 150,  Roasting.MEDIUM)
+            new Coffee("Mocha", new Date(1), "Arabica", 100, Roasting.LIGHT),
+            new Coffee("Mocha", new Date(1), "Arabica", 150, Roasting.MEDIUM),
+            new Coffee("Robusta", new Date(1), "Arabica", 50, Roasting.MEDIUM),
+            new Coffee("Liberica", new Date(1), "Arabica", 250,  Roasting.MEDIUM),
+            new Coffee("Robusta", new Date(1), "Arabica", 150,  Roasting.MEDIUM)
     );
 
     private MainWindow() {

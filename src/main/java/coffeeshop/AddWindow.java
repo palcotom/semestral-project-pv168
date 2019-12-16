@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddWindow extends JPanel {
-    private final DateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+    private final DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     private final JTextField nameField = new JTextField(5);
     private final JTextField dateField = new JTextField(5);
     private final JTextField typeField = new JTextField(5);
@@ -17,7 +17,7 @@ public class AddWindow extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.add(new JLabel("Name:"));
         this.add(nameField);
-        this.add(new JLabel("Date: dd/mm/yyyy"));
+        this.add(new JLabel("Date: dd/MM/yyyy"));
         Date date = new Date(System.currentTimeMillis());
         this.dateField.setText(format.format(date));
         this.add(dateField);
