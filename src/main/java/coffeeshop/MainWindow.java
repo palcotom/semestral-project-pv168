@@ -21,6 +21,7 @@ public class MainWindow extends JFrame {
     //TODO possibly add multiple formats of date input
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
     //TODO edit existing items ? possibly not needed but something to consider
+    //java db
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
             new Coffee("Mocha", new Date(1), "Arabica", 100, Roasting.LIGHT),
