@@ -6,8 +6,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class AddAction extends AbstractAction {
     private final DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -30,7 +28,7 @@ public class AddAction extends AbstractAction {
         this.weightField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                ValidateJOptionPane();
+                ValidateJOptionPane(e);
             }
         });
         this.roastingBox=roastingBox;
@@ -44,7 +42,7 @@ public class AddAction extends AbstractAction {
                     JOptionPane.OK_CANCEL_OPTION,
                     JOptionPane.PLAIN_MESSAGE); //displays dialog for creating new item
 
-            if (addOptionDialog == JOptionPane.OK_OPTION && ValidateJOptionPane()) {  //if ok button pressed
+            if (addOptionDialog == JOptionPane.OK_OPTION ) {  //if ok button pressed
                 java.util.Date textFieldAsDate = null;  //convert date in for mof dd/MM/yyyy to java.util.Date
                 try {
                     textFieldAsDate = format.parse(dateField.getText());
@@ -67,14 +65,13 @@ public class AddAction extends AbstractAction {
         }
     }
 
-    public boolean ValidateJOptionPane(){
-            Pattern p = Pattern.compile("[A-Z,a-z]*");
-            Matcher m = p.matcher(this.weightField.getText());
-            if (m.find()){
-                JOptionPane.showMessageDialog(null, "Please enter only numbers in Weight");
-                this.weightField.setText("");
-                return false;
-            }
-            return true;
+    public boolean ValidateJOptionPane(KeyEvent key){
+                if (Character.isDigit(key.getKeyChar())){
+                    return true;
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please enter only numbers in Weight");
+                    this.weightField.setText("");
+                    return false;
+                }
     }
 }
