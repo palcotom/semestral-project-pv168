@@ -8,7 +8,6 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,12 +15,13 @@ import java.util.List;
  */
 public class MainWindow extends JFrame {
 
-    //TODO swing worker
-    //TODO vycisti main
+    //TODO swing worker ukazka v isu
+    //TODO clean up main
     //TODO possibly add multiple formats of date input
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
     //TODO edit existing items ? possibly not needed but something to consider
     //java db
+    // TODO 3/2/2020 od 14:00 a dál
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
             new Coffee("Mocha", new Date(1), "Arabica", 100, Roasting.LIGHT),
