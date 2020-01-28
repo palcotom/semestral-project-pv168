@@ -29,7 +29,7 @@ public class AddAction extends AbstractAction {
         this.weightField=weightField;
         this.weightField.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyPressed(KeyEvent e) {
+            public void keyReleased(KeyEvent e) {
                 ValidateJOptionPane();
             }
         });
@@ -68,7 +68,7 @@ public class AddAction extends AbstractAction {
     }
 
     public boolean ValidateJOptionPane(){
-            Pattern p = Pattern.compile("[A-Z,a-z]");
+            Pattern p = Pattern.compile("[A-Z,a-z]*");
             Matcher m = p.matcher(this.weightField.getText());
             if (m.find()){
                 JOptionPane.showMessageDialog(null, "Please enter only numbers in Weight");

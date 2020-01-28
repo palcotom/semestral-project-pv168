@@ -20,6 +20,7 @@ public class MainWindow extends JFrame {
     //TODO possibly add multiple formats of date input
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
     //TODO edit existing items ? possibly not needed but something to consider
+    //java db
     // TODO 3/2/2020 od 14:00 a dál
 
     private static final List<Coffee> TEST_DATA = ImmutableList.of(
