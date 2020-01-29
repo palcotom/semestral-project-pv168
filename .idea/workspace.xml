@@ -8,8 +8,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/sql_scheme.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/AddAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/AddAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Coffee.java" afterDir="false" />
@@ -18,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/FilterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/FilterAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Roasting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Roasting.java" afterDir="false" />
->>>>>>> 34f095c92dd6ea30408275415552256f348e55e2
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
