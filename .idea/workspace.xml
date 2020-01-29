@@ -86,8 +86,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="coffeeshop.MainWindow" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="coffeeshop.Main" />
       <module name="semestral_project" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -95,7 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainWindow" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
