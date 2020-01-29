@@ -1,8 +1,10 @@
 package coffeeshop.actions;
 
 import coffeeshop.Coffee;
+import coffeeshop.CoffeeManager;
 import coffeeshop.CoffeeTableModel;
 import coffeeshop.Roasting;
+import coffeeshop.views.MainWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -53,18 +55,18 @@ public class AddAction extends AbstractAction {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
+                java.sql.Date date = new java.sql.Date(textFieldAsDate.getTime()); //convert java.util.date to java.sql.date
                 Roasting selectedOption = (Roasting) roastingBox.getSelectedItem();
                 Number id = 0; //TODO proper id generation
                 Coffee form_coffee = new Coffee(
-                        id,
                         nameField.getText(),
-                        textFieldAsDate,
+                        date,
                         typeField.getText(),
                         Integer.parseInt(weightField.getText()),
                         selectedOption
                 );
-                ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
+                MainWindow.coffeeManager.addCoffee(form_coffee);
+                //((CoffeeTableModel) table.getModel()).addRow(form_coffee);
             }
         } catch (Exception ex) {
             System.out.println(ex);

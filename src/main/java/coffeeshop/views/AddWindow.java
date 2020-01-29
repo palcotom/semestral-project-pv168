@@ -1,4 +1,6 @@
-package coffeeshop;
+package coffeeshop.views;
+
+import coffeeshop.Roasting;
 
 import javax.swing.*;
 import java.text.DateFormat;

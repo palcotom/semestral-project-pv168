@@ -1,16 +1,17 @@
 package coffeeshop;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Objects;
 
 public class Coffee {
-    private final Number id;
+    private  Number id;
     private final String name;
     private final Date date;
     private final String type;
-    private final Number weight;
+    private final Integer weight;
     private final Roasting roasting;
 
-    public Coffee (Number id,String name, Date date, String type, Number weight, Roasting roasting ){
-        this.id=id;
+    public Coffee (String name, Date date, String type, Integer weight, Roasting roasting ){
+        this.id=null;
         this.name=name;
         this.date=date;
         this.type=type;
@@ -18,6 +19,8 @@ public class Coffee {
         this.roasting=roasting;
     }
     public Number getId(){return id;}
+
+    public void setId(Number id){this.id = id;}
 
     public String getName() {
         return name;
@@ -31,11 +34,24 @@ public class Coffee {
         return type;
     }
 
-    public Number getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
     public Roasting getRoasting() {
         return roasting;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coffee coffee = (Coffee) o;
+        return id.equals(coffee.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
