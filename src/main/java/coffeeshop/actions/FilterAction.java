@@ -1,4 +1,6 @@
-package coffeeshop;
+package coffeeshop.actions;
+
+import coffeeshop.CoffeeTableModel;
 
 import javax.swing.*;
 import javax.swing.table.TableRowSorter;
@@ -29,12 +31,15 @@ public class FilterAction extends AbstractAction {
         JTextField filterText = new JTextField(5);
         JPanel filterOptionPanel = new JPanel();
         filterOptionPanel.add(new JLabel("Filter by Name:"));
+        // here add more labels
         //TODO other options for filtering
         filterOptionPanel.add(filterText);
         try {
-            int filterOptionDialog = JOptionPane.showConfirmDialog(null, filterOptionPanel, "Enter values", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE); //displays dialog for creating new item
+            int filterOptionDialog = JOptionPane.showConfirmDialog(null, filterOptionPanel,
+                    "Enter values", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            //displays dialog for creating new item
 
-            if (filterOptionDialog == JOptionPane.OK_OPTION) {  //if ok button pressed
+            if (filterOptionDialog == JOptionPane.OK_OPTION) {  //if "ok" button pressed
                 RowFilter<CoffeeTableModel, Object> rf = null;
                 //If current expression doesn't parse, don't update.
                 try {

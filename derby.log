@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Jan 29 18:33:12 CET 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-016f-f25d-3560-000007793318 
+on database directory memory:/home/tomaspl/school/java/semestral-project-pv168/coffeeDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2c13da15 
+Loaded from file:/home/tomaspl/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.4+11
+user.dir=/home/tomaspl/school/java/semestral-project-pv168
+os.name=Linux
+os.arch=amd64
+os.version=4.19.66-1-MANJARO
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

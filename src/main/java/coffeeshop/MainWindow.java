@@ -1,44 +1,70 @@
 package coffeeshop;
 
-import com.google.common.collect.ImmutableList;
+import coffeeshop.actions.AddAction;
+import coffeeshop.actions.DeleteAction;
+import coffeeshop.actions.ExitAction;
+import coffeeshop.actions.FilterAction;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.apache.commons.dbcp2.BasicDataSource;
 
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.util.List;
+import java.util.Properties;
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 /**
  * @author Oskar Spacek, Tomas Palco
  */
 public class MainWindow extends JFrame {
 
-    //TODO swing worker
-    //TODO vycisti main
+    //TODO swing worker ukazka v isu
+    //TODO clean up main
     //TODO possibly add multiple formats of date input
     //TODO clean up Coffee class (remove unnecessary / add missing attributes)
     //TODO edit existing items ? possibly not needed but something to consider
     //java db
+    // TODO 3/2/2020 od 14:00 a dál
 
-    private static final List<Coffee> TEST_DATA = ImmutableList.of(
-            new Coffee("Mocha", new Date(1), "Arabica", 100, Roasting.LIGHT),
-            new Coffee("Mocha", new Date(1), "Arabica", 150, Roasting.MEDIUM),
-            new Coffee("Robusta", new Date(1), "Arabica", 50, Roasting.MEDIUM),
-            new Coffee("Liberica", new Date(1), "Arabica", 250,  Roasting.MEDIUM),
-            new Coffee("Robusta", new Date(1), "Arabica", 150,  Roasting.MEDIUM)
-    );
+    private static DataSource getDataSource() throws IOException{
+        BasicDataSource ds = new BasicDataSource(); //Apache DBCP connection pooling DataSource
+        //load connection properties from a file
+        Properties p = new Properties();
+        p.load(MainWindow.class.getResourceAsStream("/jdbc.properties"));
 
-    private MainWindow() {
+        //set connection
+        ds.setDriverClassName(p.getProperty("jdbc.driver"));
+        ds.setUrl(p.getProperty("jdbc.url"));
+        ds.setUsername(p.getProperty("jdbc.user"));
+        ds.setPassword(p.getProperty("jdbc.password"));
+
+        //populate db with tables and data
+        new ResourceDatabasePopulator(
+                new ClassPathResource("sql_scheme.sql"),
+                new ClassPathResource("data.sql"))
+                .execute(ds);
+        return ds;
+    }
+
+    private MainWindow() throws CoffeeException,IOException{
+        DataSource dataSource = getDataSource();
+        CoffeeManager coffeeManager = new CoffeeManager(dataSource);
+
+        List<Coffee> coffees = coffeeManager.getCoffees();
+
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             // TODO log exception with warning
         }
 
-        TableModel tableModel = new CoffeeTableModel(new ArrayList<>(TEST_DATA));
+        TableModel tableModel = new CoffeeTableModel(new ArrayList<>(coffees));
         TableRowSorter sorter = new TableRowSorter<CoffeeTableModel>((CoffeeTableModel) tableModel);
         JTable table = new JTable(tableModel);
         table.setRowHeight(20);
@@ -90,10 +116,19 @@ public class MainWindow extends JFrame {
         pack();
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args){
         EventQueue.invokeLater(() ->
-                new MainWindow().setVisible(true));
+        {
+            try {
+                new MainWindow().setVisible(true);
+            } catch (CoffeeException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+
     }
 
 
