@@ -1,4 +1,4 @@
-package coffeeshop;
+package coffeeshop.actions;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

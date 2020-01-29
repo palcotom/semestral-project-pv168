@@ -1,4 +1,6 @@
-package coffeeshop;
+package coffeeshop.actions;
+
+import coffeeshop.CoffeeTableModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
