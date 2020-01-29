@@ -1,4 +1,8 @@
-package coffeeshop;
+package coffeeshop.actions;
+
+import coffeeshop.Coffee;
+import coffeeshop.CoffeeTableModel;
+import coffeeshop.Roasting;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -51,7 +55,9 @@ public class AddAction extends AbstractAction {
                 }
 
                 Roasting selectedOption = (Roasting) roastingBox.getSelectedItem();
+                Number id = 0; //TODO proper id generation
                 Coffee form_coffee = new Coffee(
+                        id,
                         nameField.getText(),
                         textFieldAsDate,
                         typeField.getText(),

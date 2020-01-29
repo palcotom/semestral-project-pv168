@@ -3,8 +3,7 @@ package coffeeshop;
 public enum Roasting {
     UNROASTED("Unroasted"),
     LIGHT("Light"),
-    MEDIUM("Medium"),
-    DARK("Dark");
+    MEDIUM("Medium");
 
     private String text;
 
