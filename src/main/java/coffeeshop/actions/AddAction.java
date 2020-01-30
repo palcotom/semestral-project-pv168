@@ -2,9 +2,11 @@ package coffeeshop.actions;
 
 import coffeeshop.Coffee;
 import coffeeshop.CoffeeTableModel;
+import coffeeshop.Main;
 import coffeeshop.Roasting;
 import coffeeshop.views.MainWindow;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -13,6 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class AddAction extends AbstractAction {
+    final static Logger log = LoggerFactory.getLogger(Main.class);
     private final DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     private final JTable table;
     private final JPanel addOptionPanel;
@@ -46,17 +49,15 @@ public class AddAction extends AbstractAction {
                     "Enter values",
                     JOptionPane.OK_CANCEL_OPTION,
                     JOptionPane.PLAIN_MESSAGE); //displays dialog for creating new item
-
             if (addOptionDialog == JOptionPane.OK_OPTION ) {  //if ok button pressed
                 java.util.Date textFieldAsDate = null;  //convert date in for mof dd/MM/yyyy to java.util.Date
                 try {
                     textFieldAsDate = format.parse(dateField.getText());
                 } catch (Exception e) {
-                    System.out.println(e);
+                    log.error("Failed to parse date", e);
                 }
                 java.sql.Date date = new java.sql.Date(textFieldAsDate.getTime()); //convert java.util.date to java.sql.date
                 Roasting selectedOption = (Roasting) roastingBox.getSelectedItem();
-                Number id = 0; //TODO proper id generation
                 Coffee form_coffee = new Coffee(
                         nameField.getText(),
                         date,
@@ -69,7 +70,7 @@ public class AddAction extends AbstractAction {
                 clearDialog();
             }
         } catch (Exception ex) {
-            System.out.println(ex);
+           log.error("Add option dialog failed", ex);
         }
     }
 

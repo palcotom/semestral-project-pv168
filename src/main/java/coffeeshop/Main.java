@@ -29,12 +29,10 @@ public class Main {
         BasicDataSource ds = new BasicDataSource();
         Properties p = new Properties();
         p.load(MainWindow.class.getResourceAsStream("/jdbc.properties"));
-
         ds.setDriverClassName(p.getProperty("jdbc.driver"));
         ds.setUrl(p.getProperty("jdbc.url"));
         ds.setUsername(p.getProperty("jdbc.user"));
         ds.setPassword(p.getProperty("jdbc.password"));
-
         new ResourceDatabasePopulator(
                 new ClassPathResource("sql_scheme.sql"),
                 new ClassPathResource("data.sql"))
@@ -43,7 +41,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         EventQueue.invokeLater(() ->
         {
             try {

@@ -60,7 +60,6 @@ public class CoffeeManager {
             log.error("SQL insert error",e);
             throw new CoffeeException("database insert failed", e);
         }
-
     }
 
     public void deleteCoffee(Long id) throws CoffeeException{
@@ -76,27 +75,6 @@ public class CoffeeManager {
             log.error("SQL delete error", e);
             throw new CoffeeException("database insert failed", e);
         }
-
     }
-
-    public void printDB() throws CoffeeException {
-        try (Connection con = dataSource.getConnection()) {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from coffees");
-            ResultSetMetaData rsmd = rs.getMetaData();
-            int columnsNumber = rsmd.getColumnCount();
-            while (rs.next()) {
-                for (int i = 1; i <= columnsNumber; i++) {
-                    System.out.print(rs.getString(i) + " "); //Print one element of a row
-                }
-                System.out.println();//Move to the next line to print the next row.
-            }
-    } catch(SQLException e)
-    {
-        throw new CoffeeException("database insert failed", e);
-    }
-
-
-}
 
 }

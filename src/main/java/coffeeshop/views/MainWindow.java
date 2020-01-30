@@ -41,8 +41,13 @@ public class MainWindow extends JFrame {
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             log.error("Look and feel error", e);
         }
-
         TableModel tableModel = new CoffeeTableModel(new ArrayList<>(coffees));
+        MainWindowBuilder(tableModel);
+        pack();
+    }
+
+
+    void MainWindowBuilder(TableModel tableModel){
         TableRowSorter sorter = new TableRowSorter<CoffeeTableModel>((CoffeeTableModel) tableModel);
         JTable table = new JTable(tableModel);
         table.setRowHeight(20);
@@ -84,14 +89,9 @@ public class MainWindow extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
-        JMenuItem openMenuItem = new JMenuItem("Open");  //TODO are these items needed ?
-        fileMenu.add(openMenuItem);
-        JMenuItem saveMenuItem = new JMenuItem("Save");
-        fileMenu.add(saveMenuItem);
         Action exitAction = new ExitAction();
         fileMenu.add(exitAction);
         setJMenuBar(menuBar);
-        pack();
     }
 
 

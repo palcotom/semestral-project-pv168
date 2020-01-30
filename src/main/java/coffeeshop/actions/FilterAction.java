@@ -1,6 +1,9 @@
 package coffeeshop.actions;
 
 import coffeeshop.CoffeeTableModel;
+import coffeeshop.Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import javax.swing.table.TableRowSorter;
@@ -11,6 +14,7 @@ public class FilterAction extends AbstractAction {
     public FilterAction(TableRowSorter sorter){
         this.sorter=sorter;
     }
+    final static Logger log = LoggerFactory.getLogger(Main.class);
 
     /**
      *
@@ -31,26 +35,22 @@ public class FilterAction extends AbstractAction {
         JTextField filterText = new JTextField(5);
         JPanel filterOptionPanel = new JPanel();
         filterOptionPanel.add(new JLabel("Filter by Name:"));
-        // here add more labels
-        //TODO other options for filtering
         filterOptionPanel.add(filterText);
         try {
             int filterOptionDialog = JOptionPane.showConfirmDialog(null, filterOptionPanel,
                     "Enter values", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
             //displays dialog for creating new item
-
             if (filterOptionDialog == JOptionPane.OK_OPTION) {  //if "ok" button pressed
-                RowFilter<CoffeeTableModel, Object> rf = null;
-                //If current expression doesn't parse, don't update.
+                RowFilter<CoffeeTableModel, Object> rf = null;//If current expression doesn't parse, don't update.
                 try {
                     rf = RowFilter.regexFilter(caseNormalization(filterText), 0);
                 } catch (java.util.regex.PatternSyntaxException e) {
-                    return;
+                    log.error("Date parsing error", e);
                 }
                 sorter.setRowFilter(rf);
             }
         } catch (Exception ex) {
-
+            log.error("Filter option dialog failed", ex);
         }
     }
 }

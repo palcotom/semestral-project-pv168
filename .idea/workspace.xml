@@ -4,11 +4,11 @@
     <list default="true" id="17d8a14a-dbdd-4213-9553-0deb2b6fe772" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/derby.log" beforeDir="false" afterPath="$PROJECT_DIR$/derby.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/CoffeeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/CoffeeManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/AddAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/AddAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/DeleteAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/DeleteAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/FilterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/FilterAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/views/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/views/MainWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
