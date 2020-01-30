@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d8a14a-dbdd-4213-9553-0deb2b6fe772" name="Default Changelist" comment="" />
+    <list default="true" id="17d8a14a-dbdd-4213-9553-0deb2b6fe772" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/derby.log" beforeDir="false" afterPath="$PROJECT_DIR$/derby.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/CoffeeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/CoffeeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/CoffeeTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/CoffeeTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/AddAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/AddAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/DeleteAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coffeeshop/actions/DeleteAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql_scheme.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql_scheme.sql" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

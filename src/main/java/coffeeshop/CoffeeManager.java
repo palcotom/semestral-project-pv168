@@ -1,12 +1,8 @@
 package coffeeshop;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
 public class CoffeeManager {
@@ -23,13 +19,15 @@ public class CoffeeManager {
                 ResultSet rs = st.executeQuery();
                 List<Coffee> coffees = new ArrayList<>();
                 while (rs.next()) {
-                    Number id = rs.getLong("id");
+                    Long id = rs.getLong("id");
                     String name = rs.getString("name");
                     Date date = rs.getDate("coffeeDate");
                     String type = rs.getString("type");
                     Integer weight = rs.getInt("weight");
                     String roastingStr = rs.getString("roasting");
-                    coffees.add(new Coffee(name, date, type, weight, Roasting.fromString(roastingStr)));
+                    Coffee coffee = new Coffee(name, date, type, weight, Roasting.fromString(roastingStr));
+                    coffee.setId(id);
+                    coffees.add(coffee);
                 }
                 return coffees;
             }
@@ -40,8 +38,7 @@ public class CoffeeManager {
 
     public void addCoffee(Coffee coffee) throws CoffeeException {
         try (Connection con = dataSource.getConnection()) {
-
-            try (PreparedStatement st = con.prepareStatement("insert into coffees (name,coffeeDate,weight,type,roasting) values (?,?,?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS)) {
+            try (PreparedStatement st = con.prepareStatement("insert into coffees (name,coffeeDate,weight,type,roasting) values (?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS)) {
                 st.setString(1, coffee.getName());
                 st.setDate(2, coffee.getDate());
                 st.setInt(3, coffee.getWeight());
@@ -52,6 +49,7 @@ public class CoffeeManager {
                 if (keys.next()) {
                     coffee.setId(keys.getLong(1));
                 }
+
             }
 
         } catch (SQLException e) {
@@ -59,4 +57,40 @@ public class CoffeeManager {
         }
 
     }
+
+    public void deleteCoffee(Long id) throws CoffeeException{
+        try (Connection con = dataSource.getConnection()) {
+            try (PreparedStatement st = con.prepareStatement("delete from coffees where id=?")) {
+                st.setLong(1,id);
+                int n = st.executeUpdate();
+                if (n == 0) {
+                    throw new CoffeeException("couldn't delete item " + id, null);
+                }
+            }
+        } catch (SQLException e) {
+            throw new CoffeeException("database insert failed", e);
+        }
+
+    }
+
+    public void printDB() throws CoffeeException {
+        try (Connection con = dataSource.getConnection()) {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from coffees");
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            while (rs.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    System.out.print(rs.getString(i) + " "); //Print one element of a row
+                }
+                System.out.println();//Move to the next line to print the next row.
+            }
+    } catch(SQLException e)
+    {
+        throw new CoffeeException("database insert failed", e);
+    }
+
+
+}
+
 }

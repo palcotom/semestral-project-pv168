@@ -3,7 +3,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class Coffee {
-    private  Number id;
+    private  Long id;
     private final String name;
     private final Date date;
     private final String type;
@@ -18,9 +18,9 @@ public class Coffee {
         this.weight=weight;
         this.roasting=roasting;
     }
-    public Number getId(){return id;}
+    public Long getId(){return id;}
 
-    public void setId(Number id){this.id = id;}
+    public void setId(Long id){this.id = id;}
 
     public String getName() {
         return name;

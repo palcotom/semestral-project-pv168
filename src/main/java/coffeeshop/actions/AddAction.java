@@ -66,7 +66,7 @@ public class AddAction extends AbstractAction {
                         selectedOption
                 );
                 MainWindow.coffeeManager.addCoffee(form_coffee);
-                //((CoffeeTableModel) table.getModel()).addRow(form_coffee);
+                ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
             }
         } catch (Exception ex) {
             System.out.println(ex);

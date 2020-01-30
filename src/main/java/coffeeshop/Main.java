@@ -14,7 +14,7 @@ import java.util.Properties;
 //TODO clean up main
 //TODO possibly add multiple formats of date input
 //TODO edit existing items ? possibly not needed but something to consider
-// TODO 3/2/2020 od 14:00 a dál
+//TODO 3/2/2020 od 14:00 a dál
 
 
 public class Main {

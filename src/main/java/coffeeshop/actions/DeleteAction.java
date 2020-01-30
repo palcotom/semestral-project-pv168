@@ -1,6 +1,8 @@
 package coffeeshop.actions;
 
+import coffeeshop.CoffeeException;
 import coffeeshop.CoffeeTableModel;
+import coffeeshop.views.MainWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,6 +25,14 @@ public class DeleteAction extends AbstractAction {
             throw new IllegalStateException("No row selected");
         }
         int modelRow = table.convertRowIndexToModel(selectedRow);
+        try{
+            Long id = ((CoffeeTableModel) table.getModel()).getRow(modelRow).getId();
+            MainWindow.coffeeManager.deleteCoffee(id);
+            MainWindow.coffeeManager.printDB();
+        }catch(CoffeeException e){
+
+        }
         ((CoffeeTableModel) table.getModel()).deleteRow(modelRow);
+
     }
 }
