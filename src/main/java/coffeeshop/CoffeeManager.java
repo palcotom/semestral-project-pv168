@@ -1,5 +1,7 @@
 package coffeeshop;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.List;
 public class CoffeeManager {
 
     private final DataSource dataSource;
+    final static Logger log = LoggerFactory.getLogger(Main.class);
 
     public CoffeeManager(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -32,6 +35,7 @@ public class CoffeeManager {
                 return coffees;
             }
         } catch (SQLException e) {
+            log.error("SQL select error",e);
             throw new CoffeeException("database select failed", e);
         }
     }
@@ -48,11 +52,12 @@ public class CoffeeManager {
                 ResultSet keys = st.getGeneratedKeys();
                 if (keys.next()) {
                     coffee.setId(keys.getLong(1));
+                }else{
+                    log.error("No keys generated");
                 }
-
             }
-
         } catch (SQLException e) {
+            log.error("SQL insert error",e);
             throw new CoffeeException("database insert failed", e);
         }
 
@@ -68,6 +73,7 @@ public class CoffeeManager {
                 }
             }
         } catch (SQLException e) {
+            log.error("SQL delete error", e);
             throw new CoffeeException("database insert failed", e);
         }
 

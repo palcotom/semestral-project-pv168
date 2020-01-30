@@ -1,6 +1,8 @@
 package coffeeshop;
 
 import coffeeshop.views.MainWindow;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -16,8 +18,12 @@ import java.util.Properties;
 //TODO edit existing items ? possibly not needed but something to consider
 //TODO 3/2/2020 od 14:00 a dál
 
+/**
+ * @author Tomas Palco
+ */
 
 public class Main {
+    final static Logger log = LoggerFactory.getLogger(Main.class);
 
     public static DataSource getDataSource() throws IOException {
         BasicDataSource ds = new BasicDataSource();
@@ -43,8 +49,7 @@ public class Main {
             try {
                 new MainWindow().setVisible(true);
             } catch (CoffeeException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+                log.error("Coffee exception in MainWindow", e);
                 e.printStackTrace();
             }
         });

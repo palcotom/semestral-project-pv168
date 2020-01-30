@@ -3,7 +3,6 @@ package coffeeshop.actions;
 import coffeeshop.CoffeeException;
 import coffeeshop.CoffeeTableModel;
 import coffeeshop.views.MainWindow;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 

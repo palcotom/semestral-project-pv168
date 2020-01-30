@@ -5,6 +5,8 @@ import coffeeshop.actions.AddAction;
 import coffeeshop.actions.DeleteAction;
 import coffeeshop.actions.ExitAction;
 import coffeeshop.actions.FilterAction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -21,18 +23,23 @@ import java.util.ArrayList;
  */
 public class MainWindow extends JFrame {
 
+    final static Logger log = LoggerFactory.getLogger(Main.class);
+
     public static CoffeeManager coffeeManager;
 
-    public MainWindow() throws CoffeeException,IOException{
-        DataSource dataSource = Main.getDataSource();
-        coffeeManager = new CoffeeManager(dataSource);
-
+    public MainWindow() throws CoffeeException {
+        try {
+            DataSource dataSource = Main.getDataSource();
+            coffeeManager = new CoffeeManager(dataSource);
+        } catch (IOException e) {
+            log.error("Coffee manager initialization error", e);
+        }
         List<Coffee> coffees = coffeeManager.getCoffees();
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-            // TODO log exception with warning
+            log.error("Look and feel error", e);
         }
 
         TableModel tableModel = new CoffeeTableModel(new ArrayList<>(coffees));

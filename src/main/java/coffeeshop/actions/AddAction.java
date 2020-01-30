@@ -1,7 +1,6 @@
 package coffeeshop.actions;
 
 import coffeeshop.Coffee;
-import coffeeshop.CoffeeManager;
 import coffeeshop.CoffeeTableModel;
 import coffeeshop.Roasting;
 import coffeeshop.views.MainWindow;
@@ -34,7 +33,7 @@ public class AddAction extends AbstractAction {
         this.weightField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                ValidateJOptionPane(e);
+                validateJOptionPane(e);
             }
         });
         this.roastingBox=roastingBox;
@@ -67,13 +66,14 @@ public class AddAction extends AbstractAction {
                 );
                 MainWindow.coffeeManager.addCoffee(form_coffee);
                 ((CoffeeTableModel) table.getModel()).addRow(form_coffee);
+                clearDialog();
             }
         } catch (Exception ex) {
             System.out.println(ex);
         }
     }
 
-    public boolean ValidateJOptionPane(KeyEvent key){
+    public boolean validateJOptionPane(KeyEvent key){
                 if (Character.isDigit(key.getKeyChar())){
                     return true;
                 }else{
@@ -81,5 +81,11 @@ public class AddAction extends AbstractAction {
                     this.weightField.setText("");
                     return false;
                 }
+    }
+
+    private void clearDialog(){
+        this.nameField.setText("");
+        this.typeField.setText("");
+        this.weightField.setText("");
     }
 }
